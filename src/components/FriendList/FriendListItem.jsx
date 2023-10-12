@@ -1,16 +1,12 @@
 import css from './FriendListItem.module.css'
 
-export const FriendListItem = (props) => {
+export const FriendListItem = ({isOnline, avatar, name}) => {
     return (
-        props.friends.map((friend) => {
-            return(
-            <li key={friend.id} className={css.item}>
-                <span className={friend.isOnline ? css.online : css.offline}></span>
-                <img className={css.avatar} src={friend.avatar} alt={friend.name} width="48" />
-                <p className={css.name}>{friend.name}</p>
-                </li>
-            )
-      })
         
-    )
-}
+            <li className={css.item}>
+                <span className={isOnline ? css.online : css.offline}></span>
+                <img className={css.avatar} src={avatar} alt={name} width="48" />
+                <p className={css.name}>{name}</p>
+            </li>
+            )
+      }
